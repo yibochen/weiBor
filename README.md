@@ -37,5 +37,5 @@ head(weibo_repost$result_df)
 f_weibo_app_repost('xiaonan')
 
 
-# 需要用到搜狗词库：http://www.sogou.com/labs/dl/w.html
+如果要用搜狗词库：http://www.sogou.com/labs/dl/w.html
 
