@@ -1,6 +1,20 @@
 weiBor
 ======
-demo:
+目前主要的函数有：
+
+f_weibo_login         登录
+
+f_weibo_content       抓取微博内容
+
+f_weibo_repost_path   抓取微博转发
+
+f_weibo_app_content   微博内容分析
+
+f_weibo_app_repost    微博转发可视化
+
+具体使用可以参考帮助文档
+
+下面是demo:
 
 require(weiBor)
 
