@@ -1,5 +1,7 @@
 weiBor
 ======
+zip包下载地址：http://vdisk.weibo.com/s/qN0wO
+
 目前主要的函数有：
 f_weibo_login         登录
 f_weibo_content       抓取微博内容
@@ -24,6 +26,4 @@ head(weibo_repost$result_df)
 f_weibo_app_repost('xiaonan')
 
 如果要用搜狗词库：http://www.sogou.com/labs/dl/w.html
-
-zip包下载地址：http://vdisk.weibo.com/s/qN0wO
 
