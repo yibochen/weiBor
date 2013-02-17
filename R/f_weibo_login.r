@@ -76,7 +76,7 @@ f_weibo_login <- function(name='****',
   x <- try(ttt <- postForm('http://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.3.18)', 
                            .params=pinfo, curl=cH, style='post'), silent=T)
   if(class(x) == 'try-error'){cat('no!!!!!!');return(NULL)}
-  newurl <- gsub('^.*location.replace\\(\'(.+)\'\\);.*$', '\\1', ttt[1])
+  newurl <- gsub('^.*location.replace\\([\'\"](.+)[\'\"]\\);.*$', '\\1', ttt[1])
   x <- try(x <- getURL(newurl, curl=cH, .encoding='UTF-8'), silent=T)
   Sys.setlocale('LC_CTYPE', bkp_ctype)
   if(class(x) == 'try-error'){cat('no!!!!!!');return(NULL)}
