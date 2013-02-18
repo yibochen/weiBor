@@ -1,6 +1,6 @@
 weiBor
 ======
-zip包下载地址：http://vdisk.weibo.com/s/qUyU5
+zip包下载地址：http://vdisk.weibo.com/s/qUCGJ
 
 目前主要的函数有：
 f_weibo_login           登录
@@ -64,6 +64,7 @@ weibo_followsns <- f_weibo_followsns(cH=ch0, type='my', hisID='lijian001', myID=
 head(weibo_followsns)
 load('weibo_saved_snsdf_chenyibo.RData')
 f_weibo_app_followsns(hisID='chenyibo', sns_df=sns_df, topk=3)
+# 抓别人的关注网络，会更慢，因此限制在共同关注上
 weibo_followsns <- f_weibo_followsns(cH=ch0, type='his', hisID='lijian001', myID='chenyibo', ftype=1)
 head(weibo_followsns)
 load('weibo_saved_snsdf_lijian001.RData')
