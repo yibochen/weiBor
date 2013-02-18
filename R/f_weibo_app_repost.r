@@ -1,15 +1,8 @@
 
 
 # Î¢²©´«²¥
-f_weibo_app_repost <- function(hisID='xiaonan', 
+f_weibo_app_repost <- function(hisID='xiaonan', weibo_repost=weibo_repost, 
                                topk=5){
-  load(paste('weibo_saved_repost_', hisID, '.RData', sep=''))
-  pkgs <- installed.packages()[, 1]
-  if(!'igraph' %in% pkgs){
-    install.packages('igraph', 
-                     repos='http://mirrors.ustc.edu.cn/CRAN/')
-  }
-  
   require(igraph)
   
   repost <- weibo_repost$result_df[, c('rootmid','rootname','repostmid','repostname')]

@@ -60,26 +60,7 @@ f_weibo_repost_oneshot <- function(cH=ch0,
 
 f_weibo_repost_path <- function(cH=ch0, hisID='xiaonan', 
                                 root_url='http://weibo.com/2043157342/zcdFaeuD1'){
-  pkgs <- installed.packages()[, 1]
-  if(!'XML' %in% pkgs){
-    install.packages('XML', 
-                     repos='http://mirrors.ustc.edu.cn/CRAN/')
-  }
-  if(!'RCurl' %in% pkgs){
-    install.packages('RCurl')
-  }
-  if(!'RJSONIO' %in% pkgs){
-    install.packages('RJSONIO', 
-                     repos='http://mirrors.ustc.edu.cn/CRAN/')
-  }
-  
-  sysname <- Sys.info()['sysname']
-  if(length(grep('Windows', sysname)) == 1){
-    try(memory.limit(4000), silent=T)
-    require(RJSONIO)
-  } else{
-    require(RJSONIO)
-  }
+  require(RJSONIO)
   require(RCurl)
   require(XML)
   

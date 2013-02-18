@@ -2,29 +2,16 @@
 
 # 微博关键词及时间分布
 f_weibo_app_content <- function(hisID='chenyibo', 
+                                weibo_content=weibo_content, 
                                 scale_a=4, scale_b=1, 
                                 cutday='2012-04-01', 
                                 equal_length=F, 
 								sogou_file='I:\\0_yibo\\2_bigbigdata\\2_apply_3_network_analysis\\1_weibo\\1_content\\SogouLabDic.dic', 
                                 mydic=NULL, 
                                 cnt_words=100){
-  load(paste('weibo_saved_content_', hisID, '.RData', sep=''))
-  pkgs <- installed.packages()[, 1]
-  if(!'rJava' %in% pkgs){
-    install.packages('rJava', 
-                     repos='http://mirrors.ustc.edu.cn/CRAN/')
-  }
-  if(!'Rwordseg' %in% pkgs){
-    install.packages('Rwordseg', 
-                     repos='http://R-Forge.R-project.org')
-  }
-  if(!'wordcloud' %in% pkgs){
-    install.packages('wordcloud', 
-                     repos='http://mirrors.ustc.edu.cn/CRAN/')
-  }
-  
   require(Rwordseg)
   require(wordcloud)
+  
   weibo_data <- weibo_content$weibo_data[order(
     -as.numeric(as.POSIXlt(weibo_content$weibo_data$weibo_time))), ]
   weibo_data_all <- sapply(strsplit(weibo_data$weibo_content, '//'), '[', 1)

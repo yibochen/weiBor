@@ -9,26 +9,7 @@ f_weibo_content <- function(cH=ch0,
   # hisID 对方的ID
   # is_e    是否企业版
   # 根据操作系统选择加载包
-  pkgs <- installed.packages()[, 1]
-  if(!'XML' %in% pkgs){
-    install.packages('XML', 
-                     repos='http://mirrors.ustc.edu.cn/CRAN/')
-  }
-  if(!'RCurl' %in% pkgs){
-    install.packages('RCurl')
-  }
-  if(!'RJSONIO' %in% pkgs){
-    install.packages('RJSONIO', 
-                     repos='http://mirrors.ustc.edu.cn/CRAN/')
-  }
-  
-  sysname <- Sys.info()['sysname']
-  if(length(grep('Windows', sysname)) == 1){
-    try(memory.limit(4000), silent=T)
-    require(RJSONIO)
-  } else{
-    require(RJSONIO)
-  }
+  require(RJSONIO)
   require(RCurl)
   require(XML)
   

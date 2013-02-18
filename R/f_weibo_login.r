@@ -3,27 +3,7 @@
 # 微博登录的函数
 f_weibo_login <- function(name='****', 
                           pwd='****'){
-  # 根据操作系统选择加载包
-  pkgs <- installed.packages()[, 1]
-  if(!'digest' %in% pkgs){
-    install.packages('digest', 
-                     repos='http://mirrors.ustc.edu.cn/CRAN/')
-  }
-  if(!'RCurl' %in% pkgs){
-    install.packages('RCurl')
-  }
-  if(!'RJSONIO' %in% pkgs){
-    install.packages('RJSONIO', 
-                     repos='http://mirrors.ustc.edu.cn/CRAN/')
-  }
-  
-  sysname <- Sys.info()['sysname']
-  if(length(grep('Windows', sysname)) == 1){
-    try(memory.limit(4000), silent=T)
-    require(RJSONIO)
-  } else{
-    require(RJSONIO)
-  }
+  require(RJSONIO)
   require(RCurl)
   require(digest)
   
