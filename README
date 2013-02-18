@@ -50,10 +50,10 @@ table(weibo_hisfollow$following_type)
 # 4、关注对象的标签
 weibo_followtags <- f_weibo_followtags(cH=ch0, type='my', hisID='lijian001', myID='chenyibo', ftype=0)
 head(weibo_followtags)
-weibo_followtags <- f_weibo_followtags(cH=ch0, type='his', hisID='lijian001', myID='chenyibo', ftype=0)
-head(weibo_followtags)
 load('weibo_saved_followtags_chenyibo.RData')
 f_weibo_app_followtags(tags=following_tags, hisID='chenyibo', cnt_words=100, scale_a=6, scale_b=1)
+weibo_followtags <- f_weibo_followtags(cH=ch0, type='his', hisID='lijian001', myID='chenyibo', ftype=0)
+head(weibo_followtags)
 load('weibo_saved_followtags_lijian001.RData')
 f_weibo_app_followtags(tags=following_tags, hisID='lijian001', cnt_words=100, scale_a=6, scale_b=1)
 
