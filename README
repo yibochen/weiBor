@@ -42,8 +42,10 @@ weibo_myfollow <- f_weibo_myfollow(cH=ch0, ftype=0)
 head(weibo_myfollow)
 weibo_hisfollow <- f_weibo_hisfollow(cH=ch0, hisID='lijian001', myID='chenyibo', ftype=0)
 head(weibo_hisfollow)
+table(weibo_hisfollow$following_type)
 weibo_hisfollow <- f_weibo_hisfollow(cH=ch0, hisID='lijian001', myID='chenyibo', ftype=1)
 head(weibo_hisfollow)
+table(weibo_hisfollow$following_type)
 
 # 4、关注对象的标签
 weibo_followtags <- f_weibo_followtags(cH=ch0, type='my', hisID='lijian001', myID='chenyibo', ftype=0)
