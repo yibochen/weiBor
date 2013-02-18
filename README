@@ -3,27 +3,68 @@ weiBor
 zip包下载地址：http://vdisk.weibo.com/s/qNAFY
 
 目前主要的函数有：
-f_weibo_login         登录
-f_weibo_content       抓取微博内容
-f_weibo_repost_path   抓取微博转发
-f_weibo_app_content   微博内容分析
-f_weibo_app_repost    微博转发可视化
-具体使用可以参考帮助文档
+f_weibo_login           登录
+f_weibo_content         抓取微博内容
+f_weibo_repost_path     抓取微博转发
+f_weibo_myfollow        抓取当前账号的关注列表
+f_weibo_hisfollow       抓取指定账号的关注列表
+f_weibo_followtags      抓取指定账号的关注对象的标签
+f_weibo_followsns       抓取指定账号的关注对象之间的关注关系
+f_weibo_app_content     微博内容分析
+f_weibo_app_repost      微博转发路径可视化
+f_weibo_app_followtags  关注对象的标签的词云（其实是通用的词云）
+f_weibo_app_followsns   关注对象之间的关注网络可视化
+
+具体使用可以参考帮助文档  
 
 下面是demo:
 require(weiBor)
 
+# 0、登录
 ch0 <- f_weibo_login('myemail', 'mypwd')
 
+# 1、微博内容
 weibo_content1 <- f_weibo_content(cH=ch0, N=100, hisID='chenyibo', is_e=F)
 weibo_content2 <- f_weibo_content(cH=ch0, N=100, hisID='eeocomcn', is_e=T)
 head(weibo_content1$weibo_data)
 head(weibo_content2$weibo_data)
-f_weibo_app_content('chenyibo', cutday='2013-01-20')
+load('weibo_saved_content_chenyibo.RData')
+f_weibo_app_content('chenyibo', weibo_content, cutday='2013-02-09')
 
+# 2、微博转发路径
 weibo_repost <- f_weibo_repost_path(cH=ch0, hisID='xiaonan', root_url='http://weibo.com/2043157342/zcdFaeuD1')
 head(weibo_repost$result_df)
-f_weibo_app_repost('xiaonan')
+load('weibo_saved_repost_xiaonan.RData')
+f_weibo_app_repost(hisID='xiaonan', weibo_repost=weibo_repost)
+
+# 3、关注对象的列表
+weibo_myfollow <- f_weibo_myfollow(cH=ch0, ftype=0)
+head(weibo_myfollow)
+weibo_hisfollow <- f_weibo_hisfollow(cH=ch0, hisID='lijian001', myID='chenyibo', ftype=0)
+head(weibo_hisfollow)
+weibo_hisfollow <- f_weibo_hisfollow(cH=ch0, hisID='lijian001', myID='chenyibo', ftype=1)
+head(weibo_hisfollow)
+
+# 4、关注对象的标签
+weibo_followtags <- f_weibo_followtags(cH=ch0, type='my', hisID='lijian001', myID='chenyibo', ftype=0)
+head(weibo_followtags)
+weibo_followtags <- f_weibo_followtags(cH=ch0, type='his', hisID='lijian001', myID='chenyibo', ftype=0)
+head(weibo_followtags)
+load('weibo_saved_followtags_chenyibo.RData')
+f_weibo_app_followtags(tags=following_tags, hisID='chenyibo', cnt_words=100, scale_a=6, scale_b=1)
+load('weibo_saved_followtags_lijian001.RData')
+f_weibo_app_followtags(tags=following_tags, hisID='lijian001', cnt_words=100, scale_a=6, scale_b=1)
+
+# 5、关注对象之间的关注关系
+weibo_followsns <- f_weibo_followsns(cH=ch0, type='my', hisID='lijian001', myID='chenyibo', ftype=1)
+head(weibo_followsns)
+load('weibo_saved_followsns_chenyibo.RData')
+f_weibo_app_followsns(hisID='chenyibo', sns_df=sns_df, topk=3)
+weibo_followsns <- f_weibo_followsns(cH=ch0, type='his', hisID='lijian001', myID='chenyibo', ftype=1)
+head(weibo_followsns)
+load('weibo_saved_followsns_lijian001.RData')
+f_weibo_app_followsns(hisID='lijian001', sns_df=sns_df, topk=3)
+
 
 如果要用搜狗词库：http://www.sogou.com/labs/dl/w.html
 
