@@ -62,11 +62,11 @@ f_weibo_app_followtags(tags=following_tags, hisID='lijian001', cnt_words=100, sc
 # 5、关注对象之间的关注关系
 weibo_followsns <- f_weibo_followsns(cH=ch0, type='my', hisID='lijian001', myID='chenyibo', ftype=1)
 head(weibo_followsns)
-load('weibo_saved_followsns_chenyibo.RData')
+load('weibo_saved_snsdf_chenyibo.RData')
 f_weibo_app_followsns(hisID='chenyibo', sns_df=sns_df, topk=3)
 weibo_followsns <- f_weibo_followsns(cH=ch0, type='his', hisID='lijian001', myID='chenyibo', ftype=1)
 head(weibo_followsns)
-load('weibo_saved_followsns_lijian001.RData')
+load('weibo_saved_snsdf_lijian001.RData')
 f_weibo_app_followsns(hisID='lijian001', sns_df=sns_df, topk=3)
 
 
