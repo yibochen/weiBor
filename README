@@ -1,6 +1,6 @@
 weiBor
 ======
-zip包下载地址：http://vdisk.weibo.com/s/qNAFY
+zip包下载地址：http://vdisk.weibo.com/s/qUnKl
 
 目前主要的函数有：
 f_weibo_login           登录
@@ -46,6 +46,8 @@ table(weibo_hisfollow$following_type)
 weibo_hisfollow <- f_weibo_hisfollow(cH=ch0, hisID='lijian001', myID='chenyibo', ftype=1)
 head(weibo_hisfollow)
 table(weibo_hisfollow$following_type)
+
+# 以下两项在关注数较多的情况下都比较耗时间，谨慎测试
 
 # 4、关注对象的标签
 weibo_followtags <- f_weibo_followtags(cH=ch0, type='my', hisID='lijian001', myID='chenyibo', ftype=0)
