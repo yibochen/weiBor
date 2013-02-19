@@ -20,7 +20,7 @@ f_weibo_app_followsns   关注对象之间的关注网络可视化
 下面是demo:
 require(weiBor)
 
-# 0、登录
+# 0、登录（登录之前记得在账号设置里面关掉验证码）
 ch0 <- f_weibo_login('myemail', 'mypwd')
 
 # 1、微博内容
