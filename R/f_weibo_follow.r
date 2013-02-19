@@ -69,7 +69,7 @@ f_weibo_hisfollow <- function(cH=ch0,
   the1url <- paste('http://weibo.com/', oid, '/follow?page=', 1, '&tag=', ftype, sep='')
   the1get <- getURL(the1url, curl=cH, .encoding='UTF-8')
   if(grepl('还没有共同关注的人', the1get)){
-    cat('还没有共同关注的人!!!!!!把ftype设成0试试看吧')
+    cat('还没有共同关注的人!!!!!!把ftype设成0试试看吧', '\n')
     return(NULL)
   }
   idx <- gregexpr('page=[0-9]+', the1get)[[1]]

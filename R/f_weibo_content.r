@@ -33,6 +33,7 @@ f_weibo_content <- function(cH=ch0,
   weibo_data <- data.frame(weibo_content=NULL, weibo_time=NULL)
   # 循环读取页面
   while((nrow(weibo_data) < cnt) & (pg <= pages)){
+    Sys.sleep(runif(n=1,min=0.001,max=0.01))
     # 第一屏
     if(is_e){
       the1url <- paste('http://e.weibo.com/', hisID, '?page=', pg, '&pre_page=', pg-1, sep='')
