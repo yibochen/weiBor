@@ -22,6 +22,9 @@ require(weiBor)
 
 # 0、登录（登录之前记得在账号设置里面关掉验证码）
 ch0 <- f_weibo_login('myemail', 'mypwd')
+# 模拟登录失效的时候，可以尝试用cookie文件登录
+# 其中的cookie文件可以通过Firefox的Firebug插件获得
+ch0 <- f_weibo_login(cookie_file='C:/Users/ASUS/Desktop/cookies.txt')
 
 # 1、微博内容
 weibo_content1 <- f_weibo_content(cH=ch0, N=100, hisID='chenyibo', is_e=F)
