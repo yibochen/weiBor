@@ -17,9 +17,9 @@ f_weibo_app_repost <- function(hisID='xiaonan', weibo_repost=weibo_repost,
   V(gg2)$betweenness <- betweenness(gg2)
   top_d <- quantile(V(gg2)$degree, (length(V(gg2))-topk)/length(V(gg2)))
   top_b <- quantile(V(gg2)$betweenness, (length(V(gg2))-topk)/length(V(gg2)))
-  V(gg2)$size <- 3
+  V(gg2)$size <- 1
   V(gg2)$label <- NA
-  V(gg2)$labelcex <- 2
+  V(gg2)$labelcex <- 1
   V(gg2)$framecolor <- 'SkyBlue2'
   V(gg2)$vertexcolor <- 'SkyBlue2'
   V(gg2)[degree>=top_d | betweenness>=top_b]$framecolor <- 'gold'
@@ -34,7 +34,7 @@ f_weibo_app_repost <- function(hisID='xiaonan', weibo_repost=weibo_repost,
   par(mar=c(0,0,0,0))
   set.seed(14)
   plot(gg2,
-       layout=layout.fruchterman.reingold,
+       layout=layout.kamada.kawai,
        vertex.size=V(gg2)$size,
        vertex.label=V(gg2)$label,
        vertex.label.cex=V(gg2)$labelcex,
