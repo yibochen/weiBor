@@ -34,7 +34,7 @@ f_weibo_app_repost <- function(hisID='xiaonan', weibo_repost=weibo_repost,
   par(mar=c(0,0,0,0))
   set.seed(14)
   plot(gg2,
-       layout=layout.kamada.kawai,
+       layout=layout.auto,
        vertex.size=V(gg2)$size,
        vertex.label=V(gg2)$label,
        vertex.label.cex=V(gg2)$labelcex,
