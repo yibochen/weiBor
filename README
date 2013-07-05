@@ -1,5 +1,6 @@
 weiBor
 这是一个用于抓取新浪微博数据并做一些分析的R包
+这个包已经被李舰的Rweibo干掉了，链接在此 http://jliblog.com/app/rweibo
 ======
 zip包下载地址：http://vdisk.weibo.com/s/z7StY
 
